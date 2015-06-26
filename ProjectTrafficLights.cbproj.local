@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.587,C:\Users\Rafael\Documents\RAD Studio\Projects\Project2PCH1.h=D:\ProjektyCpp\Traffic_Lights\TrafficLightsH.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.566,=C:\Users\Rafael\Documents\RAD Studio\Projects\Project2PCH1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.108,C:\Users\Rafael\Documents\RAD Studio\Projects\Unit2.dfm=D:\ProjektyCpp\Traffic_Lights\Traffic_Lights.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.061,D:\ProjektyCpp\Traffic_Lights\Traffic_Lights.dfm=D:\ProjektyCpp\Project_Traffic_Lights\Traffic_Lights.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.605,D:\ProjektyCpp\Project_Traffic_Lights\TrafficLightsH.h=D:\ProjektyCpp\Traffic_Lights\TrafficLightsH.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.061,D:\ProjektyCpp\Traffic_Lights\Traffic_Lights.cpp=D:\ProjektyCpp\Project_Traffic_Lights\Traffic_Lights.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.108,C:\Users\Rafael\Documents\RAD Studio\Projects\Unit2.cpp=D:\ProjektyCpp\Traffic_Lights\Traffic_Lights.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.875,C:\Users\Rafael\Documents\RAD Studio\Projects\Project2.cbproj=D:\ProjektyCpp\Traffic_Lights\ProjectTrafficLights.cbproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.108,C:\Users\Rafael\Documents\RAD Studio\Projects\Unit2.h=D:\ProjektyCpp\Traffic_Lights\Traffic_Lights.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.250,D:\ProjektyCpp\Traffic_Lights\ProjectTrafficLights.cbproj=D:\ProjektyCpp\Project_Traffic_Lights\ProjectTrafficLights.cbproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.061,D:\ProjektyCpp\Traffic_Lights\Traffic_Lights.h=D:\ProjektyCpp\Project_Traffic_Lights\Traffic_Lights.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.636,=C:\Users\Rafael\Documents\RAD Studio\Projects\Unit2.cpp</Transaction>
+  </Transactions>
+</BorlandProject>
