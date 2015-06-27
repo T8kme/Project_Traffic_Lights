@@ -1,9 +1,10 @@
 object Form1: TForm1
   Left = 0
   Top = 0
+  AutoSize = True
   Caption = 'Traffic Lights'
-  ClientHeight = 422
-  ClientWidth = 216
+  ClientHeight = 406
+  ClientWidth = 391
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -59,15 +60,191 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
-    Left = 8
-    Top = 8
+    Left = 0
+    Top = 0
     Width = 200
     Height = 200
   end
   object Image2: TImage
-    Left = 8
-    Top = 214
+    Left = 0
+    Top = 206
     Width = 200
     Height = 200
+  end
+  object Label4: TLabel
+    Left = 234
+    Top = 238
+    Width = 52
+    Height = 13
+    Caption = 'Czerwone:'
+  end
+  object Label9: TLabel
+    Left = 277
+    Top = 393
+    Width = 114
+    Height = 13
+    Caption = 'Rafa'#322' Olszewski E4Y2S1'
+  end
+  object GroupBox1: TGroupBox
+    Left = 206
+    Top = 0
+    Width = 185
+    Height = 176
+    Caption = 'Control'
+    Color = clSilver
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object TimeLabel: TLabel
+      Left = 64
+      Top = 47
+      Width = 6
+      Height = 13
+      Caption = '0'
+      Color = clWhite
+      ParentColor = False
+    end
+    object Label1: TLabel
+      Left = 32
+      Top = 47
+      Width = 26
+      Height = 13
+      Caption = 'Time:'
+    end
+    object StartButton: TButton
+      Left = 16
+      Top = 16
+      Width = 75
+      Height = 25
+      Caption = 'START'
+      TabOrder = 0
+      OnClick = StartButtonClick
+    end
+    object CloseButton: TButton
+      Left = 98
+      Top = 16
+      Width = 75
+      Height = 25
+      Caption = 'Close'
+      TabOrder = 1
+      OnClick = CloseButtonClick
+    end
+    object Manual: TButton
+      Left = 16
+      Top = 138
+      Width = 153
+      Height = 25
+      Caption = 'Switch light'
+      TabOrder = 2
+      OnClick = ManualClick
+    end
+    object StopButton: TButton
+      Left = 16
+      Top = 66
+      Width = 75
+      Height = 25
+      Caption = 'STOP'
+      TabOrder = 3
+      OnClick = StopButtonClick
+    end
+    object ClearButton: TButton
+      Left = 98
+      Top = 66
+      Width = 75
+      Height = 25
+      Caption = 'Clear'
+      TabOrder = 4
+      OnClick = ClearButtonClick
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 206
+    Top = 182
+    Width = 185
+    Height = 113
+    Caption = 'Duration time:'
+    Color = clSilver
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    object Label2: TLabel
+      Left = 40
+      Top = 27
+      Width = 23
+      Height = 13
+      Caption = 'Red:'
+    end
+    object Label3: TLabel
+      Left = 30
+      Top = 56
+      Width = 33
+      Height = 13
+      Caption = 'Green:'
+    end
+    object Label5: TLabel
+      Left = 23
+      Top = 83
+      Width = 43
+      Height = 13
+      Caption = 'Flashing:'
+    end
+    object Label6: TLabel
+      Left = 100
+      Top = 27
+      Width = 20
+      Height = 13
+      Caption = 'sec.'
+    end
+    object Label7: TLabel
+      Left = 100
+      Top = 56
+      Width = 20
+      Height = 13
+      Caption = 'sec.'
+    end
+    object Label8: TLabel
+      Left = 100
+      Top = 83
+      Width = 20
+      Height = 13
+      Caption = 'sec.'
+    end
+    object GreenEdit: TEdit
+      Left = 69
+      Top = 46
+      Width = 25
+      Height = 21
+      MaxLength = 3
+      NumbersOnly = True
+      TabOrder = 0
+      Text = '1'
+    end
+    object RedEdit: TEdit
+      Left = 69
+      Top = 19
+      Width = 25
+      Height = 21
+      MaxLength = 3
+      NumbersOnly = True
+      TabOrder = 1
+      Text = '1'
+    end
+    object FlashEdit: TEdit
+      Left = 69
+      Top = 75
+      Width = 25
+      Height = 21
+      MaxLength = 3
+      NumbersOnly = True
+      TabOrder = 2
+      Text = '1'
+    end
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 1
+    OnTimer = Timer1Timer
+    Left = 220
+    Top = 312
   end
 end

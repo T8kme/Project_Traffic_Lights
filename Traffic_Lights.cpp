@@ -8,7 +8,10 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 // dane
-int pointer_height, pointer_width, pointer_height2, pointer_width2, zmtimer;
+int pointer_height, pointer_width, pointer_height2, pointer_width2, zmtimer,
+	toggle = 0; // variable declarations
+AnsiString TimeC, TimeZ, TimeM;
+float counter = 0;
 TForm1 *Form1;
 
 // ---------------------------------------------------------------------------
@@ -210,4 +213,133 @@ void TForm1::refresh() {
 	Image2->Canvas->CopyRect(ProstField2, Field2->Canvas, ProstField2);
 }
 
-// --------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+
+void __fastcall TForm1::CloseButtonClick(TObject *Sender) {
+	Close();
+}
+// ---------------------------------------------------------------------------
+
+void __fastcall TForm1::ManualClick(TObject *Sender) {
+
+	if (toggle == 0) {
+		gray_greenlight();
+		redlight();
+		refresh();
+		toggle = 1;
+	}
+	else {
+		gray_redlight();
+		greenlight();
+		refresh();
+		toggle = 0;
+	}
+}
+
+// ---------------------------------------------------------------------------
+
+void __fastcall TForm1::StartButtonClick(TObject *Sender) {
+	Timer1->Enabled = True; // start timer
+	StartButton->Enabled = False; // blocking items
+	ClearButton->Enabled = False;
+	Manual->Enabled = False;
+	RedEdit->Enabled = False;
+	GreenEdit->Enabled = False;
+	FlashEdit->Enabled = False;
+
+	TimeC = RedEdit->Text; // read contents from editboxes
+	TimeZ = GreenEdit->Text;
+	TimeM = FlashEdit->Text;
+
+	if (RedEdit->Text < 0) { // cannot be ' '
+		RedEdit->Text = 0;
+		TimeC = 0;
+	}
+	if (GreenEdit->Text < 0) {
+		GreenEdit->Text = 0;
+		TimeZ = 0;
+	}
+	if (FlashEdit->Text < 0) {
+		FlashEdit->Text = 0;
+		TimeM = 0;
+	}
+
+	gray_greenlight(); // greenlight
+	gray_redlight(); // redlight
+	refresh();
+	toggle = 0;
+}
+
+// -----------------------TIMER----------------------------------------------------
+
+void __fastcall TForm1::Timer1Timer(TObject *Sender) {
+	TimeLabel->Caption = 1 + (zmtimer++ / 100);
+	counter++;
+
+	if (toggle == 0 && StrToInt(TimeC) != 0) { // change on redlight
+		if ((counter / 100) == StrToInt(TimeC)) {
+			gray_redlight(); // gray redlight
+			refresh();
+			counter = 0;
+			toggle = 1;
+		}
+		else { // greenlight
+			redlight();
+			refresh();
+		}
+	}
+	else { // zmiana na greenlight
+		if ((counter / 100) == (StrToInt(TimeZ) + StrToInt(TimeM)))
+		{ // preparing to change
+			gray_greenlight(); // gray greenlight
+			refresh();
+			counter = 0;
+			toggle = 0;
+		}
+		else { // greenlight
+			if ((counter / 100) < (StrToInt(TimeZ))) {
+				greenlight();
+				refresh();
+			}
+			else { // flashing
+				if (fmod((((counter / 100) - StrToInt(TimeZ))), 1)
+					> 0.5 && StrToInt(TimeM) != 0) {
+					greenlight();
+					refresh();
+				}
+				else {
+					gray_greenlight();
+					refresh();
+				}
+			}
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------
+
+void __fastcall TForm1::StopButtonClick(TObject *Sender) {
+	Timer1->Enabled = False; // timer stop
+	StartButton->Enabled = True; // unable items
+	Manual->Enabled = True;
+	ClearButton->Enabled = True;
+	RedEdit->Enabled = True;
+	GreenEdit->Enabled = True;
+	FlashEdit->Enabled = True;
+	toggle = 0;
+	counter = 0;
+}
+// --------------------------------------------a-------------------------------
+
+void __fastcall TForm1::ClearButtonClick(TObject *Sender) {
+	zmtimer = 0;
+	counter = 0;
+	toggle = 0;
+	TimeLabel->Caption = 0;
+	GreenEdit->Text = 1;
+	RedEdit->Text = 1;
+	FlashEdit->Text = 1;
+
+}
+// ---------------------------------------------------------------------------
+
