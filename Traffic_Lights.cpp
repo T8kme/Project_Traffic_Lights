@@ -17,7 +17,7 @@ TForm1 *Form1;
 // ---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {
 	DoubleBuffered = True; // 2 objects
-	Field = new Graphics::TBitmap; //
+	Field = new Graphics::TBitmap;
 	Field2 = new Graphics::TBitmap;
 	// Ustawianie wymiarów
 	pointer_height = Image1->Height;
@@ -144,7 +144,7 @@ void TForm1::greenlight() {
 	points4[4] = Point(69, 142);
 	points4[5] = Point(74, 146);
 	Field2->Canvas->Polygon(points4, 5);
-	// prawa
+	// right
 	TPoint points5[4];
 	points5[0] = Point(106, 121);
 	points5[1] = Point(115, 116);
@@ -156,7 +156,7 @@ void TForm1::greenlight() {
 }
 
 void TForm1::gray_greenlight() {
-	Field2->Canvas->Pen->Color = RGB(130, 130, 130); // pióro
+	Field2->Canvas->Pen->Color = RGB(130, 130, 130); // brush
 	Field2->Canvas->Pen->Width = 1;
 	Field2->Canvas->Brush->Color = RGB(140, 140, 140);
 	// Head
@@ -197,7 +197,7 @@ void TForm1::gray_greenlight() {
 	points4[4] = Point(69, 142);
 	points4[5] = Point(74, 146);
 	Field2->Canvas->Polygon(points4, 5);
-	// prawa
+	// right
 	TPoint points5[4];
 	points5[0] = Point(106, 121);
 	points5[1] = Point(115, 116);
